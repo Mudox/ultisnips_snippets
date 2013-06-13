@@ -1,0 +1,17 @@
+# ` { $ \ ' needs to be escaped by a prefixing '\'.
+
+snippet snpt
+`!p snip.rv = 'snippet'` ${1:>Trigger< } "${2:>Description<}" ${3:>Flags: [!biwrts]<}
+${4: Snippet body here ...}
+`!p snip.rv = 'endsnippet'`
+$0
+endsnippet
+
+snippet stop "Insert a tabstop position" i
+\$\{${1:index}${2::${3:default content}}\}$0
+endsnippet
+
+snippet trans "Insert a transformation" i
+\$\{${1:index}${2:/${3:python flavor RE}/${4:substitute}/${5:flag:[i|g]}}\}$0
+endsnippet
+
