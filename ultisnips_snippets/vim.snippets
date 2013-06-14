@@ -40,3 +40,26 @@ if exists("${1:`!v substitute(substitute(expand('%:r'), '.*', '\L&\E', 'g'), '[^
 endif
 endsnippet
 
+snippet ifunix "if on unix/linux system" b
+if has('unix')
+    ${1:${VISUAL}}
+endif$0
+endsnippet
+
+snippet ifwin "if on windows system" b
+if has('win32') || has('win64')
+    ${1:${VISUAL}}
+endif$0
+endsnippet
+
+snippet ifsys "if on windows system" b
+if has('win32') || has('win64')
+    ${1:${VISUAL}}
+elseif has('unix')
+    ${2:${VISUAL}}
+elseif has('mac') || has('macunix')
+    ${3:${VISUAL}}
+else
+    ${4:echohl ErrorMsg | echo "Oops! Unknown sysinfo" | echohl NONE}
+endif$0
+endsnippet
