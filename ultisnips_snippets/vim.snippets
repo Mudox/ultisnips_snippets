@@ -60,6 +60,6 @@ elseif has('unix')
 elseif has('mac') || has('macunix')
     ${3:${VISUAL}}
 else
-    ${4:echohl ErrorMsg | echo "Oops! Unknown sysinfo" | echohl NONE}
+    ${4:echoerr echo "Oops! Unknown sysinfo"}
 endif$0
 endsnippet
