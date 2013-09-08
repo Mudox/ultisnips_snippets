@@ -1,0 +1,13 @@
+snippet case "case ... esac" b
+case ${1:/*WORD*/} in
+    ${2:/*type brch to expand a branch*/}
+esac
+$0
+endsnippet
+
+snippet brch ".. | .. | ... ) command-list;;" b
+${1:/* PATTERN | PATTERN ... */} ) ${2:/* COMMAND-LIST */} ${3:;; or ;& or ;;&}
+$0
+endsnippet
+
+

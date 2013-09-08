@@ -63,3 +63,8 @@ else
     ${4:echoerr echo "Oops! Unknown sysinfo"}
 endif$0
 endsnippet
+
+snippet ap "autoload path"
+`!v substitute(substitute(expand('%:p:r'), '^.\+autoload[/\\]\(.*\)', '\1', ''), '[/\\]', '#', 'g')`#
+endsnippet
+
