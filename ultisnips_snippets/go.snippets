@@ -1,0 +1,16 @@
+snippet #! "go file initial framework" b
+package ${1:main}
+
+import (
+    "${2:fmt}"
+)
+
+func main() {
+    $0
+}
+endsnippet
+
+snippet out "fmt.Println(...)" i
+fmt.Println(${1:"$2"})
+$0
+endsnippet
