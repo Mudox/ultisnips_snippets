@@ -10,13 +10,13 @@ ${1:Prefix:[c|cno|i|ino]}abbrev ${2:[e-<expr>|b-<buffer>]} ${3:lhs} ${4:rhs}
 $0
 endsnippet
 
-snippet for "for .. endfor structure" b
+snippet for "for ... endfor structure" b
 for ${1:Head ...}
     ${2:Body ...}
 endfor
 endsnippet
 
-snippet if "if .. endif structure" b
+snippet if "if ... endif structure" b
 if ${1:Condition}
     ${2:Then ...}
 endif
@@ -28,7 +28,7 @@ if exists("${1:`!v substitute(substitute(expand('%:r'), '.*', '\L&\E', 'g'), '[^
 endif
 endsnippet
 
-snippet ifunix "if on unix/linux system" b
+snippet ifunix "if on *nix system" b
 if has('unix')
     ${1:${VISUAL}}
 endif$0
@@ -40,7 +40,7 @@ if has('win32') || has('win64')
 endif$0
 endsnippet
 
-snippet ifsys "if on windows system" b
+snippet ifsys "if on ... system" b
 if has('win32') || has('win64')
     ${1:${VISUAL}}
 elseif has('unix')
@@ -55,4 +55,3 @@ endsnippet
 snippet ap "autoload path" i
 `!v substitute(substitute(expand('%:p:r'), '^.\+autoload[/\\]\(.*\)', '\1', ''), '[/\\]', '#', 'g')`#
 endsnippet
-
