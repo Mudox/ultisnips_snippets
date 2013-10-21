@@ -10,7 +10,28 @@ func main() {
 }
 endsnippet
 
-snippet out "fmt.Println(...)" i
-fmt.Println(${1:"$2"})
-$0
+snippet fun "func() {...}" b
+func ${1:main}(${2:arg1, ...}) ${3:int} {
+    $4
+}$0
+endsnippet
+
+snippet mth "method declaration" b
+func (${1:t} ${2:[*] T}) ${3:Foo}(${4:arg1, ...}) ${5:int} {
+    ${6}
+}$0
+endsnippet
+
+snippet pf "fmt.Printf" b
+fmt.Printf("$1"$2)$0
+endsnippet
+
+snippet pl "fmt.Println(...)" i
+fmt.Println(${1:"$2"})$0
+endsnippet
+
+snippet for "for statement" b
+for ${1:${2:i} := 0}; ${3:$2 != ${4}}; ${5:${6:$2}++} {
+    $7
+}$0
 endsnippet
