@@ -38,10 +38,13 @@ endsnippet
 
 snippet "(\*)?(\w+)\.(\w+)(.*)" "smart method declaration" br
 `!p
+Receiver = 'ptr' if match.group(1) else 'obj'
 Star = '* ' if match.group(1) else ''
 Type = match.group(2)
 Name = match.group(3)
-Other = match.group(4)
+Other = match.group(4) or '()'
 `
-func (${1:self} `!p snip.rv = Star`${3:`!p snip.rv = Type`}) `!p snip.rv = Name`${4:`!p snip.rv = Other`}
+func (${1:`!p snip.rv = Receiver`} `!p snip.rv = Star`${3:`!p snip.rv = Type`}) `!p snip.rv = Name`${4:`!p snip.rv = Other`} $5{
+    $0
+}
 endsnippet
