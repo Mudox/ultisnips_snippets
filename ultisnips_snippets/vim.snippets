@@ -54,3 +54,7 @@ endsnippet
 snippet ap "autoload path" i
 `!v substitute(substitute(expand('%:p:r'), '^.\+autoload[/\\]\(.*\)', '\1', ''), '[/\\]', '#', 'g')`#
 endsnippet
+
+snippet "\b([labswvg]) (\w+)" "easy ident scope input" r
+`!p snip.rv = match.expand(r'\1:\2')`
+endsnippet
