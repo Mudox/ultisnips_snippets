@@ -22,9 +22,12 @@ endif
 endsnippet
 
 snippet guard "Exit quickly if already sourced" b
-if exists("${1:`!v substitute(substitute(expand('%:r'), '.*', '\L&\E', 'g'), '[^a-z]', '_', 'g')`}")
+if exists("${1:loaded_${2:`!v 
+substitute(substitute(expand('%:r'), '.*', '\L&\E', 'g'), '[^a-z1-9]', '_', 'g')
+`}}")
     finish
 endif
+let $1 = 1
 endsnippet
 
 snippet ifunix "if on *nix system" b
