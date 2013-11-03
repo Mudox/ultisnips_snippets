@@ -1,7 +1,7 @@
 snippet fun "Define a VimL function" b
-function${1:!} ${2:Name}( ${3:Param} ) ${4:range|abort|dict}
+function${1:!} ${2:Name}( ${3:Param} ) ${4:range|abort|dict} " {{{2
     ${5:" TODO ...}
-endfunction$0
+endfunction " }}}2$0
 endsnippet
 
 snippet abb "Define an abbreviation" b
@@ -22,7 +22,7 @@ endif
 endsnippet
 
 snippet guard "Exit quickly if already sourced" b
-if exists("${1:loaded_${2:`!v 
+if exists("${1:loaded_${2:`!v
 substitute(substitute(expand('%:r'), '.*', '\L&\E', 'g'), '[^a-z1-9]', '_', 'g')
 `}}")
     finish
