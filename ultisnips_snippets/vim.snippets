@@ -22,9 +22,9 @@ endif
 endsnippet
 
 snippet guard "Exit quickly if already sourced" b
-if exists("${1:loaded_${2:`!v
-substitute(substitute(expand('%:r'), '.*', '\L&\E', 'g'), '[^a-z1-9]', '_', 'g')
-`}}")
+if exists("${1:loaded_mdx_${2:`!v
+substitute(substitute(expand('%:p:t'), '.*', '\L&\E', 'g'), '[^a-z1-9]', '_', 'g')
+`}}") || &cp || version < 700
     finish
 endif
 let $1 = 1
