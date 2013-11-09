@@ -42,15 +42,16 @@ for ${1:${2:i} := 0}; ${3:$2 != ${4}}; ${5:${6:$2}++} {
 }$0
 endsnippet
 
-snippet "(\*)?(\w+)\.(\w+)(.*)" "smart method declaration" br
+snippet "(\*)?(\w+)\.(\w+)(\(.*?\))(\([^)]*\)|.*)" "smart method declaration" br
 `!p
 Receiver = 'ptr' if match.group(1) else 'obj'
-Star = '* ' if match.group(1) else ''
-Type = match.group(2)
-Name = match.group(3)
-Other = match.group(4) or '()'
+Star     = '* ' if match.group(1) else ''
+Type     = match.group(2)
+Name     = match.group(3)
+Param    = match.group(4) or '()'
+Return	 = match.group(5) or ''
 `
-func (${1:`!p snip.rv = Receiver`} `!p snip.rv = Star`${3:`!p snip.rv = Type`}) `!p snip.rv = Name`${4:`!p snip.rv = Other`} $5{
+func (${1:`!p snip.rv = Receiver`} `!p snip.rv = Star`${3:`!p snip.rv = Type`}) `!p snip.rv = Name`${4:`!p snip.rv = Param`} ${5:`!p snip.rv = Return` }{
 	$0
 }
 endsnippet
