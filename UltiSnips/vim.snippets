@@ -23,7 +23,7 @@ endsnippet
 
 snippet guard "Exit quickly if already sourced" b
 if exists("${1:loaded_mdx_${2:`!v
-substitute(substitute(expand('%:p'), '^.*\(\%(plugin\|autolaod\).*\)$', '\L\1\E', ''), '[^a-z1-9]', '_', 'g')
+substitute(substitute(expand('%:p'), '^.*\(\%(plugin\|autoload\).*\)$', '\L\1\E', ''), '[^a-z1-9]', '_', 'g')
 `}}") || &cp || version < 700
     finish
 endif
