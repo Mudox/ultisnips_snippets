@@ -1,7 +1,7 @@
 snippet fun "Define a VimL function" b
-function${1:!} ${2:Name}( ${3:Param} ) ${4:range|abort|dict} " {{{2
+function${1:!} ${2:Name}( ${3:Param} ) ${4:range|abort|dict} " `!v split(&foldmarker, ',')[0]`2
     ${5:" TODO ...}
-endfunction " }}}2$0
+endfunction "  `!v split(&foldmarker, ',')[1]`2$0
 endsnippet
 
 snippet abb "Define an abbreviation" b
