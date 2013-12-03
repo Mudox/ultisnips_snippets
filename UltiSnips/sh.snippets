@@ -1,0 +1,5 @@
+snippet ifso "source script if file exists" b
+if [[ -f "${1:${VISUAL}}" ]]; then
+    source "$1"$0
+fi
+endsnippet
