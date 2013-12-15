@@ -1,5 +1,8 @@
 snippet ifso "source script if file exists" b
-if [[ -f "${1:${VISUAL}}" ]]; then
-    source "$1"$0
+if test -s "${1:${VISUAL}}"; then
+	source "$1"
+else
+	echo "[\$(date)]: test -s $1 failed" \
+		>> ${2:"${HOME}/${3:\$0}.log"}
 fi
 endsnippet
