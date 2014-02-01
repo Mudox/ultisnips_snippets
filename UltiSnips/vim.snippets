@@ -1,6 +1,6 @@
 snippet fun "Define a VimL function" b
 function${1:!} ${2:Name}( ${3:Param} ) ${4:range|abort|dict} " `!v split(&foldmarker, ',')[0]`2
-    ${5:" TODO ...}
+  ${5:" TODO ...}
 endfunction "  `!v split(&foldmarker, ',')[1]`2$0
 endsnippet
 
@@ -11,44 +11,46 @@ endsnippet
 
 snippet for "for ... endfor structure" b
 for ${1:Head ...}
-    ${2:Body ...}
+  ${2:Body ...}
 endfor
 endsnippet
 
 snippet if "if ... endif structure" b
 if ${1:Condition}
-    ${2:Then ...}
+  ${2:Then ...}
 endif
 endsnippet
 
 snippet guard "Exit quickly if already sourced" b
+" GUARD {{{1
 if exists("${1:s:loaded}") || &cp || version < 700
-    finish
+  finish
 endif
 let $1 = 1
+" }}}1
 endsnippet
 
 snippet ifunix "if on *nix system" b
 if has('unix')
-    ${1:${VISUAL}}
+  ${1:${VISUAL}}
 endif$0
 endsnippet
 
 snippet ifwin "if on windows system" b
 if has('win32') || has('win64')
-    ${1:${VISUAL}}
+  ${1:${VISUAL}}
 endif$0
 endsnippet
 
 snippet ifsys "if on ... system" b
 if has('win32') || has('win64')
-    ${1:${VISUAL}}
+  ${1:${VISUAL}}
 elseif has('unix')
-    ${2:${VISUAL}}
+  ${2:${VISUAL}}
 elseif has('mac') || has('macunix')
-    ${3:${VISUAL}}
+  ${3:${VISUAL}}
 else
-    ${4:echoerr echo "Oops! Unknown sysinfo"}
+  ${4:echoerr echo "Oops! Unknown sysinfo"}
 endif$0
 endsnippet
 
