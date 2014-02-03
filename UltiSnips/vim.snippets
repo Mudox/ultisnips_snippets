@@ -21,7 +21,9 @@ if ${1:Condition}
 endif
 endsnippet
 
-snippet guard "Exit quickly if already sourced" b
+snippet #! "Exit quickly if already sourced" b
+" vim: foldmethod=marker
+
 " GUARD {{{1
 if exists("${1:s:loaded}") || &cp || version < 700
   finish
