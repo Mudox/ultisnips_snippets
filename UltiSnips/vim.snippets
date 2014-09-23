@@ -47,12 +47,10 @@ endsnippet
 snippet ifsys "if on ... system" b
 if has('win32') || has('win64')
   ${1:${VISUAL}}
-elseif has('unix')
-  ${2:${VISUAL}}
 elseif has('mac') || has('macunix')
+  ${2:${VISUAL}}
+elseif has('unix')
   ${3:${VISUAL}}
-else
-  ${4:echoerr echo "Oops! Unknown sysinfo"}
 endif$0
 endsnippet
 
