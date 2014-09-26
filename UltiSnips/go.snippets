@@ -36,12 +36,6 @@ snippet pl "fmt.Println(...)" i
 fmt.Println(${1:"$2"})$0
 endsnippet
 
-snippet for "for statement" b
-for ${1:${2:i} := 0}; ${3:$2 != ${4}}; ${5:${6:$2}++} {
-	$7
-}$0
-endsnippet
-
 snippet "(\*)?(\w+)\.(\w+)(\(.*?\))\s*(\([^)]*\)|.*)\s*" "smart method declaration" br
 `!p
 Receiver = 'ptr' if match.group(1) else 'obj'
@@ -54,3 +48,11 @@ Return	 = match.group(5) or ''
 	$0
 }
 endsnippet
+
+snippet iferr "if err != 0 { ... }" b
+if err != nil {
+	${1:panic(err)}
+}
+$0
+endsnippet
+
