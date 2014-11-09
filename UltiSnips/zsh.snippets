@@ -3,14 +3,14 @@
 extends sh
 
 snippet ifsys "switch uname -o" b
-case \$(uname -o) in
+case \$(uname -s) in
 	"Darwin" )
 		${1:# for MacOS}
 		;;
 	"Cygwin" )
 		${2:# for Cygwin on Windows}
 		;;
-	"GNU/Linux" )
+	"Linux" )
 		${3:# for Linux}
 		;;
   * )
