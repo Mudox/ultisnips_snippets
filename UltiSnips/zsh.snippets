@@ -1,1 +1,22 @@
+# vim: filetype=snippets
+
 extends sh
+
+snippet ifsys "switch uname -o" b
+case \$(uname -o) in
+	"Darwin" )
+		${1:# for MacOS}
+		;;
+	"Cygwin" )
+		${2:# for Cygwin on Windows}
+		;;
+	"GNU/Linux" )
+		${3:# for Linux}
+		;;
+  * )
+    echo "\e[31m[.zshrc]: un-recognized platform."
+    ;;
+esac
+$0
+endsnippet
+
