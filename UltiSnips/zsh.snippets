@@ -2,15 +2,15 @@
 
 extends sh
 
-snippet ifsys "switch uname -o" b
+snippet ifsys "switch uname -s" b
 case \$(uname -s) in
-	"Darwin" )
+	Darwin )
 		${1:# for MacOS}
 		;;
-	"Cygwin" )
+	CYGWIN* )
 		${2:# for Cygwin on Windows}
 		;;
-	"Linux" )
+	Linux )
 		${3:# for Linux}
 		;;
   * )
@@ -19,4 +19,3 @@ case \$(uname -s) in
 esac
 $0
 endsnippet
-
