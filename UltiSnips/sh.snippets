@@ -31,8 +31,13 @@ esac
 endsnippet
 
 snippet chkbin "executable availability check" b
-if [[ -z "$(whence ${1:bin})" ]]; then
+if ! which ${1:bin} &>/dev/null; then
   printf "\e[31mmissing executable [$1], quit\e[0m\n"
   return
 fi
 endsnippet
+
+snippet #! "shebang line" b
+#/usr/bin/env ${1:bash}
+endsnippet
+
