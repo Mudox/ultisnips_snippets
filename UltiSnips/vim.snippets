@@ -1,29 +1,10 @@
-snippet fun "Define a VimL function" b
-function${1:!} ${2:Name}( ${3:Param} ) ${4:range|abort|dict} " `!v split(&foldmarker, ',')[0]`2
-  ${5:" TODO ...}
-endfunction "  `!v split(&foldmarker, ',')[1]`2$0
-endsnippet
-
 snippet abb "Define an abbreviation" b
 ${1:Prefix:[c|cno|i|ino]}abbrev ${2:[e-<expr>|b-<buffer>]} ${3:lhs} ${4:rhs}
 $0
 endsnippet
 
-snippet for "for ... endfor structure" b
-for ${1:Head ...}
-  ${2:Body ...}
-endfor
-endsnippet
-
-snippet if "if ... endif structure" b
-if ${1:Condition}
-  ${2:Then ...}
-endif
-endsnippet
-
 snippet #! "Exit quickly if already sourced" b
-" vim: foldmethod=marker
-
+" vim: fdm=marker
 " GUARD {{{1
 if exists("${1:s:loaded}") || &cp || version < 700
   finish
@@ -58,6 +39,28 @@ snippet ap "autoload path" i
 `!v substitute(substitute(expand('%:p:r'), '^.\+autoload[/\\]\(.*\)', '\1', ''), '[/\\]', '#', 'g')`#
 endsnippet
 
-snippet "\b([labswvg]) (\w+)" "easy ident scope input" r
-`!p snip.rv = match.expand(r'\1:\2')`
+snippet echoc "echohl ..." b
+echohl ${1:WarningMsg}
+echo ${2:'colored output here ...'}
+echohl None
+endsnippet
+
+snippet const "let ... | lockvar ..." b
+let ${1:name} = ${2:value} | lockvar $1
+$0
+endsnippet
+
+snippet const= "unlock & change value & lock" b
+unlockvar ${1:name}${2: | }let $1 = ${3:value}$2lockvar $1
+endsnippet
+
+snippet '\s*f([adr])?([1-9])?' "smart function definition" br
+`!p
+param_strings = {'a': 'abort', 'd': 'dict', 'r': 'range'}
+param         = match.group(1)
+fold_lvl      = match.group(2)
+`function! ${1:name}(${2:...})`!p if param: snip.rv = ' ' + param_strings[param]``!p if fold_lvl: snip.rv = ' " {{{' + fold_lvl`
+" TODO${3}: implement $1($2)
+$0
+endfunction `!p if fold_lvl: snip.rv = '" }}}' + fold_lvl`
 endsnippet
