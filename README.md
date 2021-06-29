@@ -1,3 +1,1 @@
-#My Ultisnips Snippets
-
-My snippets collection for Ultisnips.
+# My Ultisnips Snippets
