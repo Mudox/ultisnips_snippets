@@ -1,0 +1,18 @@
+# vim: fdm=marker fmr=\ 〈,\ 〉
+
+# vmk -> vim modeline with folder settings 〈
+snippet vmk "vim modeline with folder settings" b
+`!v printf(&commentstring, ' vim: fdm=marker fmr=\ 〈,\ 〉')`
+$0
+endsnippet
+# 〉
+
+# nfd -> add new fold 〈
+snippet nfd "add new fold" b
+${1:#} ${2:title} 〈
+
+${VISUAL}$0
+
+$1 〉
+endsnippet
+# 〉
