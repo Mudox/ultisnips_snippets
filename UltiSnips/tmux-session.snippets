@@ -1,0 +1,26 @@
+# vim: fdm=marker fmr=\ 〈,\ 〉
+
+# win -> window 〈
+snippet win "window" b
+
+# Window: $1 〈
+() {
+local window_name=${1}
+local pane_title=${2}
+local dir=${3}
+local cmd=${4}
+window$0
+}
+# 〉
+
+endsnippet
+# 〉
+
+# pane -> pane 〈
+snippet pane "pane" b
+local pane_title=${1}
+local dir=${2}
+local cmd=${3}
+pane$0
+endsnippet
+# 〉

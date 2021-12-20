@@ -1,3 +1,5 @@
+# vim: fdm=marker fmr=\ 〈,\ 〉
+
 snippet abb "Define an abbreviation" b
 ${1:Prefix:[c|cno|i|ino]}abbrev ${2:[e-<expr>|b-<buffer>]} ${3:lhs} ${4:rhs}
 $0
@@ -64,3 +66,27 @@ fold_lvl      = match.group(2)
 $0
 endfunction `!p if fold_lvl: snip.rv = '" }}}' + fold_lvl`
 endsnippet
+
+# plugtmp -> plugin interface file template 〈
+snippet plugtmp "plugin interface file template" b
+if exists('g:loaded_${1:name}') | finish | endif
+
+let s:save_cpo = &cpo
+set cpo&vim
+
+if !has('nvim')
+    echohl Error
+    echom "Sorry this plugin only works with versions of neovim that support lua"
+    echohl clear
+    finish
+endif
+
+let g:loaded_$1 = 1
+
+lua require('$1').${2:generate_command()}
+
+let &cpo = s:save_cpo
+unlet s:save_cpo
+endsnippet
+# 〉
+

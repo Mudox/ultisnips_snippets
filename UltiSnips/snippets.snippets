@@ -1,12 +1,13 @@
-# vim: fdm=marker
+# vim: fdm=marker fmr=〈,〉
+
 # ` { $ \ ' needs to be escaped by a prefixing '\'.
 
 snippet snpt
-# $1 -> $2 {{{1
+# $1 -> $2 〈
 `!p snip.rv = 'snippet'` ${1:>Trigger< } "${2:>Description<}" ${3:>Flags: [!biwrts]<}
 ${4: Snippet body here ...}
 `!p snip.rv = 'endsnippet'`
-# }}}1
+# 〉
 $0
 endsnippet
 
